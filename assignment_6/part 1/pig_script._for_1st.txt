@@ -1,0 +1,12 @@
+1) REGISTER /usr/lib/pig/piggybank.jar;
+
+  input_file = load '/inputs/mr_inputs/assignment6.csv'
+  USING CSVExcelStorage(',', 'default', 'NOCHANGE',  'SKIP_INPUT_HEADER')
+  as (id:int,name:chararray,designation:chararray,salary:float,city:chararray);
+
+2) input2 = FOREACH input_file GENERATE $o,$3;
+
+3)REGISTER pidUdfConcat.jar;
+  input3 = FOREACH input_file GENERATE PigUDF(id,salary);
+  
+  

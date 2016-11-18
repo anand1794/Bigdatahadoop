@@ -1,0 +1,23 @@
+1)Create 'employee','offical','personal'
+
+2)  1->put 'employee','row1','official:ID','123'
+         put 'employee','row1','official:designation','engineer'
+         put 'employee','row1','official:salary','50000'
+         put 'employee','row1','personal:name','Rahul Kumar'
+  	 put 'employee','row1','personal:city','patna'
+	put 'employee','row2','official:ID','345'
+  	 put 'employee','row2','official:designation','manager'
+  	 put 'employee','row2','official:salary','10000'
+  	 put 'employee','row2','personal:name','Rohit Roy'
+  	 put 'employee','row2','personal:city','benglore'
+	put 'employee','row3','official:ID','567'
+  	 put 'employee','row3','official:designation','HR'
+  	 put 'employee','row3','official:salary','1000000'
+  	 put 'employee','row3','personal:name','Rajesh Rhnana'
+  	 put 'employee','row3','personal:city','hyderabad'
+
+    2-> put 'employee','row1','official:ID','111'
+
+    3->delete'employee','official:ID','111''employee','row1','official:ID','1474112733958'
+
+

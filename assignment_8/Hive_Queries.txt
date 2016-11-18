@@ -1,0 +1,27 @@
+1-
+create table if not exists sales_info(
+store_id String,
+txn_dt String,
+txn_amt Float)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+TBLPROPERTIES ("skip.header.line.count"="1");
+
+LOAD DATA LOCAL INPATH '/home/M1035838/Sales_Info.csv' into TABLE   sales_info;
+
+2-
+create external table if not exists sales_master(
+store_id String,
+store_name String)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+TBLPROPERTIES ("skip.header.line.count"="1");
+
+LOAD DATA LOCAL INPATH '/home/M1035838/Sales_Master.csv' into TABLE  sales_master;
+
+3- 
+create external table if not exists sales_report(
+store_id String,
+store_name String,
+txn_amt Float)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+Insert into table sales_report SELECT a.store_id,a.store_name,b.txn_amt FROM sales_info AS a JOIN sales_master AS b ON a.store_id=b.store_id;

@@ -1,0 +1,6 @@
+REGISTER /usr/lib/pig/piggybank.jar;
+
+A = LOAD '/inputs/mr_inputs/assignment6.csv'USING CSVExcelStorage(',', 'default','NOCHANGE','SKIP_INPUT_HEADER') AS (id:int,name:chararray,designation:chararray,salary:float,city:chararray);
+
+A_GROUP = GROUP A ALL;
+A_COUNT = FOREACH A_GROUP GENERATE COUNT(LOGS);

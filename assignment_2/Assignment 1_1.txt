@@ -1,0 +1,15 @@
+1. Create hdfs directory /hadoop_inputs. Under this directory create following directories
+
+a. mr_inputs
+
+--> hadoop fs -mkdir /hadoop_inputs/mr_inputs
+
+b. pig_inputs
+
+--> hadoop fs -mkdir /hadoop_inputs/pig_inputs
+
+c. project_inputs
+
+--> hadoop fs -mkdir /hadoop_inputs/project_inputs
+
+ 

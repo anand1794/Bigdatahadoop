@@ -1,0 +1,13 @@
+data = load '/inputs/mr_inputs/exercise_4_data.txt' as (c1,c2,c3);
+
+data1 = FOREACH data GENERATE (int)$0,(int)$1,(int)$2;
+
+----filtering data to get only integers
+
+REGISTER PigUDFforEvenOdd.jar;
+
+filtered1 = FILTER data1 BY NUMBER_OF_NULLS($1,"even") == 0;
+
+filtered2 = FILTER data1 BY NUMBER_OF_NULLS($1,"odd") == 0;
+
+filtered3 = FILTER data1 BY NUMBER_OF_NULLS($1,"no_num") == 0;

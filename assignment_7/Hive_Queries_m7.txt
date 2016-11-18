@@ -1,0 +1,35 @@
+1) create table store_details(
+    store_location String,
+    store_description String,
+    store_type String)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+2)   LOAD DATA LOCAL INPATH '/home/M1035838/store_details_file.csv' into TABLE  store_details;
+
+     SELECT * FROM store_details;
+
+3)  create table store_sales(
+    store_location String,
+    operation_date String,
+    total_sales Float)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+ 
+4) LOAD DATA LOCAL INPATH '/home/M1035838/store_txns_file.csv' into TABLE  store_sales;
+
+     SELECT * FROM store_sales;
+
+5)  create external table store_report(
+    store_description String,
+    store_type String    
+   store_location String,
+    operation_date String,
+    total_sales Float)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+insert into table store_report
+ SELECT
+   a.store_description,a.store_type,a.store_location,
+  b.operation_date,b.total_sales
+  FROM store_details AS a JOIN store_sales AS b ON a.store_location=b.store_location;
+
+SELECT * FROM store_report;

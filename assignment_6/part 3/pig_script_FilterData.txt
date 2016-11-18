@@ -1,0 +1,13 @@
+data = load '/inputs/mr_inputs/exercise_3_data.txt' as (c1,c2,c3,c4);
+
+--------If all of the fields are of numeric types, we could simply do something like
+
+data1 = foreach data generate (int) $0,(int)$1,(int)$2,(int)$3;
+
+filtered = FILTER data1 BY $1*$2 is not null;
+
+------we could also write a UDF to take an arbitrary number of arguments and return null
+
+REGISTER Numerofnull.jar;
+
+filtered = FILTER data1 BY NUMBER_OF_NULLS($1, $2) == 0;

@@ -1,0 +1,13 @@
+--Loading data from Hbase to pig
+
+raw = LOAD 'hbase://employee' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage(
+'official:ID
+ fficial:designation
+ official:salary
+ personal:name
+ personal:city
+) AS (id:chararray, designation:chararray, salary:chararray, name:chararray, city:chararray);
+
+--Displaying the data in pig
+DUMP raw;
+

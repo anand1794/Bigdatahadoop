@@ -1,0 +1,12 @@
+Bellandur,300000
+KR Puram,250000
+HSR Layout,450000
+BTM,600000
+Bellandur,400000
+HSR Layout,550000
+Marathahalli,550000
+JP Nagar,330000
+KR Puram,250000
+Jayanagar,270000
+KR Puram,150000
+BTM,700000

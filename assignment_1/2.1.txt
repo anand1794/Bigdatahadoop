@@ -1,0 +1,2 @@
+https://svn.apache.org/repos/asf/hadoop/common/branches/branch-2.2.0/ - svn branch for Hadoop 2.2.0 release. 
+Build tool is maven.
